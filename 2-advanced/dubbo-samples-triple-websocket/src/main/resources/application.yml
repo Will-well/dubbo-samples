@@ -13,19 +13,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-spring:
-  application:
-    name: dubbo-stub-demo-consumer
-
+server:
+    port: 8080
 dubbo:
-  application:
-    name: ${spring.application.name}
-    qos-port: 33333
-  protocol:
-    name: dubbo
-    port: -1
-  registry:
-    address: zookeeper://${zookeeper.address:127.0.0.1}:2181
-  consumer:
-    protocol: dubbo
+    application:
+        name: dubbo-springboot-triple-websocket
+        qos-port: 22222
+    registry:
+        address: nacos://${nacos.address:localhost}:8848?username=nacos&password=nacos
+    protocol:
+        name: tri
+        port: 50052
+        triple:
+            websocket:
+                enabled: true
+            servlet:
+                enabled: true
